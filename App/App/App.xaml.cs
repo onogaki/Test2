@@ -1,6 +1,9 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace App
@@ -16,7 +19,8 @@ namespace App
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            AppCenter.Start("android=56ef8ebd-85d4-436f-a40c-49ed0bcbf864;",
+                  typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
